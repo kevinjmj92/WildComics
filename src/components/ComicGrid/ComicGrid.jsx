@@ -12,7 +12,7 @@ const sampleComics = [
   {
     id: 1,
     title: "The Divine Demon Jeong Cheon",
-    imageUrl: "/placeholder-comic1.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/369068/conversions/01K85Q9ZG4MQQAWQN5PRCE5R2W-optimized.webp",
     genres: ["Action", "Adventure", "Fantasy", "Martial Arts", "Murim", "Rebirth"],
     status: "Ongoing",
     rating: 8.7, // Nueva propiedad de calificación
@@ -22,7 +22,7 @@ const sampleComics = [
   {
     id: 2,
     title: "Iron-Blooded Warrior",
-    imageUrl: "/placeholder-comic2.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp",
     genres: ["Action", "Adventure", "Fantasy", "Martial Arts"],
     status: "Ongoing",
     rating: 7.9,
@@ -32,7 +32,7 @@ const sampleComics = [
   {
     id: 3,
     title: "Supreme Mage Returns",
-    imageUrl: "/placeholder-comic3.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-thumb-small.webp",
     genres: ["Action", "Adventure", "Fantasy", "Rebirth", "Revenge"],
     status: "Ongoing",
     rating: 9.2,
@@ -42,7 +42,7 @@ const sampleComics = [
   {
     id: 4,
     title: "Heavenly Demon",
-    imageUrl: "/placeholder-comic4.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/36/conversions/d86aab25-thumb-small.webp",
     genres: ["Action", "Fantasy", "Martial Arts", "Wuxia"],
     status: "Ongoing",
     rating: 8.1,
@@ -52,7 +52,7 @@ const sampleComics = [
   {
     id: 5,
     title: "Greed: The Game Master",
-    imageUrl: "/placeholder-comic5.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/258121/conversions/01JF83N4R7XZH8XT6FFHDB4Z1Z-thumb-small.webp",
     genres: ["Action", "Adventure", "Comedy", "Fantasy", "Game"],
     status: "Ongoing",
     rating: 8.9,
@@ -62,7 +62,7 @@ const sampleComics = [
   {
     id: 6,
     title: "Physician of Tang Family",
-    imageUrl: "/placeholder-comic6.jpg",
+    imageUrl: "https://gg.asuracomic.net/storage/media/350643/conversions/01K4J921B3PYW9VQ7TWCJCEABY-thumb-small.webp",
     genres: ["Action", "Adventure", "Comedy", "Fantasy", "Martial Arts", "Murim"],
     status: "Ongoing",
     rating: 7.5,
