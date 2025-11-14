@@ -45,11 +45,11 @@
   transform: scale(1.05);
 }
 
-/* Menú de navegación - Movido a la derecha */
-.nav-menu {
+/* ========== MENÚ DESKTOP ========== */
+.desktop-menu {
   display: flex;
   align-items: center;
-  margin-left: auto; /* Empuja el menú hacia la derecha */
+  margin-left: auto;
 }
 
 .nav-list {
@@ -59,7 +59,7 @@
   padding: 0;
   gap: 40px;
   align-items: center;
-  margin-right: 25px; /* Espacio entre categorías y buscador */
+  margin-right: 25px;
 }
 
 .nav-item {
@@ -76,21 +76,19 @@
   position: relative;
 }
 
-/* Cambio: Hover rojo sin línea inferior */
 .nav-link:hover {
-  color: #ff0000; /* Rojo */
+  color: #ff0000;
 }
 
-/* Eliminamos la línea inferior */
 .nav-link::after {
   display: none;
 }
 
-/* Controles */
+/* Controles desktop */
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 /* Barra de búsqueda */
@@ -141,13 +139,24 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Búsqueda móvil - oculta en desktop */
-.mobile-search {
-  display: none;
+/* Botón de usuario en desktop */
+.user-icon-desktop {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 }
 
-.mobile-logo {
-  display: none;
+.user-icon-desktop:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff0000;
 }
 
 /* Botón menú hamburguesa */
@@ -182,6 +191,15 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* ========== MENÚ MÓVIL ========== */
+.mobile-menu {
+  display: none;
+}
+
+.mobile-logo {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav-container {
@@ -194,79 +212,82 @@
     height: 70px;
   }
 
-  /* Logo en navbar móvil - 125px de alto como pediste */
+  /* Logo en navbar móvil */
   .nav-logo img {
     width: auto;
     height: 125px;
     max-height: 100%;
   }
 
-  /* Ocultar menú y búsqueda desktop en móvil */
-  .nav-menu {
+  /* Ocultar menú desktop en móvil */
+  .desktop-menu {
+    display: none !important;
+  }
+
+  /* Mostrar menú móvil cuando está activo - REDUCIMOS AÚN MÁS EL PADDING SUPERIOR */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: -100%;
     width: 280px;
     height: 100vh;
     background: #1a1a1a;
-    flex-direction: column;
-    padding: 90px 25px 25px;
+    padding: 40px 20px 20px; /* REDUCIDO: de 50px a 40px arriba */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: left 0.3s ease;
     z-index: 999;
-    /* CAMBIO: Eliminar todo tipo de scroll */
     overflow: hidden;
-    margin-left: 0;
-    margin-right: 0;
   }
 
-  .nav-menu.active {
+  .mobile-menu.active {
     left: 0;
   }
 
-  .nav-list {
+  /* Lista de navegación móvil */
+  .mobile-nav-list {
+    display: flex;
     flex-direction: column;
     gap: 0;
     width: 100%;
-    min-height: auto;
-    margin-right: 0;
-    /* CAMBIO: Prevenir desbordamiento horizontal */
+    margin: 0;
+    padding: 0;
+    list-style: none;
     max-width: 100%;
     box-sizing: border-box;
   }
 
-  .nav-item {
+  .mobile-nav-item {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* CAMBIO: Asegurar que no cause desbordamiento */
     max-width: 100%;
     box-sizing: border-box;
   }
 
-  .nav-link {
+  .mobile-nav-link {
     display: block;
-    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
     font-size: 1.1rem;
     text-align: center;
     width: 100%;
-    /* CAMBIO: Asegurar que el texto no cause desbordamiento */
     word-wrap: break-word;
     box-sizing: border-box;
+    transition: color 0.3s ease;
   }
 
-  /* Ocultar búsqueda desktop en móvil */
-  .desktop-search {
-    display: none !important;
+  .mobile-nav-link:hover {
+    color: #ff0000;
   }
 
-  /* Mostrar búsqueda móvil */
+  /* Mostrar búsqueda móvil - SIN BORDE */
   .mobile-search {
     display: block;
     width: 100%;
-    padding: 20px 0;
-    /* CAMBIO: Eliminar línea de separación debajo del buscador */
-    border-bottom: none;
-    /* CAMBIO: Prevenir desbordamiento */
+    padding: 15px 0;
+    border-bottom: none !important;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -274,36 +295,76 @@
   .mobile-search .search-container {
     width: 100%;
     margin: 0;
-    /* CAMBIO: Asegurar que no cause desbordamiento */
     max-width: 100%;
     box-sizing: border-box;
   }
 
   .mobile-search .search-input {
     width: 100%;
-    /* CAMBIO: Asegurar que no cause desbordamiento */
     max-width: 100%;
     box-sizing: border-box;
   }
 
-  /* Logo en móvil ahora arriba de Trending */
+  /* Logo en móvil - REDUCIMOS PADDING INFERIOR */
   .mobile-logo {
     display: flex;
     justify-content: center;
-    padding: 0 0 30px 0;
+    padding: 0 0 15px 0; /* REDUCIDO: de 20px a 15px */
     margin-top: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* CAMBIO: Prevenir desbordamiento */
     max-width: 100%;
     box-sizing: border-box;
   }
 
+  .mobile-logo a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+
   .mobile-logo img {
-    height: 125px;
+    height: 110px;
     width: auto;
     border-radius: 10px;
-    /* CAMBIO: Asegurar que la imagen no cause desbordamiento */
     max-width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-logo img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Botón de inicio de sesión en móvil - SIN BORDE SUPERIOR */
+  .mobile-auth {
+    margin-top: auto;
+    padding: 30px 0 10px;
+  }
+
+  .auth-button-mobile {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    /* ELIMINADO: border-top y margin-top */
+  }
+
+  .auth-button-mobile:hover {
+    background: #ff0000;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .auth-icon {
+    font-size: 1rem;
   }
 
   /* Mostrar hamburguesa en móvil */
@@ -315,7 +376,7 @@
   }
 
   /* Overlay cuando el menú está abierto */
-  .nav-menu.active::before {
+  .mobile-menu.active::before {
     content: '';
     position: fixed;
     top: 0;
@@ -324,13 +385,6 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: -1;
-  }
-
-  /* CAMBIO NUEVO: Eliminar scroll horizontal en toda la página cuando el menú está abierto */
-  body.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
   }
 }
 
@@ -349,5 +403,7 @@
 @media (max-width: 768px) {
   body.menu-open {
     overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 }

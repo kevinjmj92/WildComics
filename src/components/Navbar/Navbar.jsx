@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaBars, FaTimes, FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Toggle body class para el overlay
     if (!isMenuOpen) {
       document.body.classList.add('menu-open');
     } else {
@@ -31,8 +30,8 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Menú desktop */}
-        <div className="nav-menu">
+        {/* Menú desktop - SOLO se muestra en desktop */}
+        <div className="nav-menu desktop-menu">
           <ul className="nav-list">
             <li className="nav-item">
               <a href="/trending" className="nav-link">Trending</a>
@@ -42,7 +41,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Buscador desktop */}
+          {/* Buscador desktop y controles */}
           <div className="nav-controls">
             <div className="search-container desktop-search">
               <input 
@@ -54,10 +53,14 @@ const Navbar = () => {
                 <FaSearch />
               </button>
             </div>
+            {/* Botón de usuario en desktop - solo icono */}
+            <button className="user-icon-desktop" aria-label="Iniciar Sesión">
+              <FaUser />
+            </button>
           </div>
         </div>
 
-        {/* Botón hamburguesa */}
+        {/* Botón hamburguesa - SOLO se muestra en móvil */}
         <button 
           className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
@@ -68,20 +71,22 @@ const Navbar = () => {
           <span></span>
         </button>
 
-        {/* Menú móvil */}
-        <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          {/* Logo en la parte superior - PRIMERA POSICIÓN */}
+        {/* Menú móvil - SOLO se muestra en móvil */}
+        <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+          {/* Logo en la parte superior - PRIMERA POSICIÓN - AHORA ES LINK */}
           <div className="mobile-logo">
-            <img src={logo} alt="WildComics Logo" />
+            <a href="/" onClick={closeMenu}>
+              <img src={logo} alt="WildComics Logo" />
+            </a>
           </div>
 
           {/* Lista de navegación - SEGUNDA POSICIÓN */}
-          <ul className="nav-list">
-            <li className="nav-item">
-              <a href="/trending" className="nav-link" onClick={closeMenu}>Trending</a>
+          <ul className="mobile-nav-list">
+            <li className="mobile-nav-item">
+              <a href="/trending" className="mobile-nav-link" onClick={closeMenu}>Trending</a>
             </li>
-            <li className="nav-item">
-              <a href="/library" className="nav-link" onClick={closeMenu}>Biblioteca</a>
+            <li className="mobile-nav-item">
+              <a href="/library" className="mobile-nav-link" onClick={closeMenu}>Biblioteca</a>
             </li>
           </ul>
 
@@ -99,7 +104,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Botón Iniciar Sesión lo agregaremos en el siguiente paso */}
+          {/* Botón Iniciar Sesión - CUARTA POSICIÓN (al final) */}
+          <div className="mobile-auth">
+            <button className="auth-button-mobile" onClick={closeMenu}>
+              <FaUser className="auth-icon" />
+              Iniciar Sesión
+            </button>
+          </div>
         </div>
       </div>
     </nav>
