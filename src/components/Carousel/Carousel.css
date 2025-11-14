@@ -8,6 +8,11 @@
   overflow: hidden;
   background: #1a1a1a;
   cursor: default;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .carousel-wrapper {
@@ -26,6 +31,11 @@
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   padding: 0;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .carousel-slide.active {
@@ -41,6 +51,11 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Text Content - Left Side */
@@ -52,6 +67,11 @@
   justify-content: center;
   z-index: 2;
   min-width: 0;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-header {
@@ -69,6 +89,11 @@
   margin: 0;
   line-height: 1.1;
   flex: 1;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-rating {
@@ -80,6 +105,11 @@
   border-radius: 20px;
   border: 1px solid rgba(220, 38, 38, 0.4);
   flex-shrink: 0;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .rating-star {
@@ -108,6 +138,11 @@
   background: rgba(220, 38, 38, 0.1);
   border-radius: 6px;
   border: 1px solid rgba(220, 38, 38, 0.3);
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-status {
@@ -118,6 +153,11 @@
   background: rgba(16, 185, 129, 0.1);
   border-radius: 6px;
   border: 1px solid rgba(16, 185, 129, 0.3);
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-chapters {
@@ -128,6 +168,11 @@
   background: rgba(96, 165, 250, 0.1);
   border-radius: 6px;
   border: 1px solid rgba(96, 165, 250, 0.3);
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-description {
@@ -139,6 +184,13 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-clamp: 4;
+  box-orient: vertical;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-actions {
@@ -157,6 +209,11 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   min-width: 120px;
+  /* Permitir selección en botones (opcional) */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .read-now-btn {
@@ -188,6 +245,11 @@
   justify-content: center;
   padding: 2rem;
   position: relative;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .slide-image {
@@ -198,6 +260,8 @@
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  /* Prevenir arrastre de imagen - solo propiedad estándar */
+  -webkit-user-drag: none;
 }
 
 /* Indicators */
@@ -220,6 +284,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
+  /* Prevenir selección de texto */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .indicator.active {
@@ -299,6 +368,7 @@
   .slide-description {
     font-size: 0.9rem;
     -webkit-line-clamp: 3; /* Show description on mobile */
+    line-clamp: 3; /* Línea agregada */
     margin-bottom: 1.5rem;
     color: #f0f0f0;
   }
@@ -338,6 +408,7 @@
   .slide-description {
     font-size: 0.85rem;
     -webkit-line-clamp: 4; /* Show more lines on very small screens */
+    line-clamp: 4; /* Línea agregada */
     margin-bottom: 1rem;
   }
   
