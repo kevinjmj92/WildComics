@@ -98,6 +98,12 @@ const Carousel = () => {
       onTouchMove={handleMouseMove}
       onTouchEnd={handleMouseUp}
     >
+      {/* Fondo difuminado */}
+      <div 
+        className="carousel-background"
+        style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+      ></div>
+      
       <div className="carousel-wrapper">
         {slides.map((slide, index) => (
           <div
