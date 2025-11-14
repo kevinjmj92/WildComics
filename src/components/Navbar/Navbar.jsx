@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import logo from '../../assets/logo.png';
+import logoA from '../../assets/logo-ancho.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -36,7 +37,7 @@ const Navbar = () => {
         {/* Logo como enlace a inicio */}
         <div className="nav-logo">
           <a href="/" onClick={closeMenu}>
-            <img src={logo} alt="WildComics Logo" />
+            <img src={logoA} alt="WildComics Logo" />
           </a>
         </div>
 

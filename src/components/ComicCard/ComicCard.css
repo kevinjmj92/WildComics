@@ -1,0 +1,152 @@
+.comic-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.comic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  background: #222;
+}
+
+.comic-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.comic-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.comic-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.comic-card:hover .comic-image {
+  transform: scale(1.05);
+}
+
+.comic-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.comic-status {
+  background: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.comic-info {
+  padding: 16px;
+}
+
+.comic-title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+
+.comic-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.genre-tag {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff4444;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+/* Nuevos estilos para el sistema de calificación */
+.comic-rating {
+  margin-bottom: 8px;
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.star {
+  font-size: 1rem;
+  color: #444; /* Color base para estrellas vacías */
+  position: relative;
+}
+
+.star-full {
+  color: #ffc107; /* Amarillo para estrellas llenas */
+}
+
+.star-half {
+  background: linear-gradient(90deg, #ffc107 50%, #444 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rating-value {
+  color: #ffc107;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.comic-chapter {
+  color: #feca57;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comic-info {
+    padding: 12px;
+  }
+  
+  .comic-title {
+    font-size: 0.9rem;
+  }
+  
+  .comic-status {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+  
+  .rating-value {
+    font-size: 0.75rem;
+  }
+}

@@ -27,15 +27,15 @@ body {
 }
 
 main {
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 main h1 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #feca57;
   font-size: 2.5rem;
 }
@@ -45,4 +45,46 @@ main p {
   color: #ccc;
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Estilos para el contenido futuro */
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.comic-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.comic-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.comic-info {
+  padding: 15px;
+}
+
+.comic-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.comic-chapter {
+  font-size: 0.9rem;
+  color: #feca57;
 }
