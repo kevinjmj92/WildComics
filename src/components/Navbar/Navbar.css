@@ -336,7 +336,7 @@
 
   /* Botón de inicio de sesión en móvil - SIN BORDE SUPERIOR */
   .mobile-auth {
-    margin-top: auto;
+    margin-top: 70%;
     padding: 30px 0 10px;
   }
 
