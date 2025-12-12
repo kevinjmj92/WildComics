@@ -1,0 +1,66 @@
+.footer {
+  background-color: #0f0f0f; /* Cambiado a negro para que coincida con el fondo de la página */
+  padding: 40px 20px;
+  margin-top: 60px;
+  /* Se eliminó border-top: 2px solid #feca57; */
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-logo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: transform 0.3s ease; /* Solo mantenemos la transformación */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-button:hover {
+  /* Eliminamos background-color: rgba(254, 202, 87, 0.1); */
+  transform: scale(1.05);
+}
+
+.footer-logo-button:active {
+  transform: scale(0.95);
+}
+
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.footer-copyright {
+  color: #ccc;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 15px;
+  }
+  
+  .footer-logo {
+    max-width: 100px;
+  }
+  
+  .footer-copyright {
+    font-size: 0.8rem;
+  }
+}
