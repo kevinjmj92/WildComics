@@ -101,6 +101,31 @@
   height: 16px;
 }
 
+.page-info {
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+/* TEXTO PARA DESKTOP (visible solo en desktop) */
+.pagination-btn .desktop-text,
+.page-info .desktop-text {
+  display: inline;
+}
+
+.pagination-btn .mobile-text,
+.page-info .mobile-text {
+  display: none;
+}
+
+.page-info {
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
 /* ==== CAMBIOS PRINCIPALES PARA DESKTOP ==== */
 @media (min-width: 768px) {
   /* 2 CARDS POR FILA, CADA UNA OCUPA EL 50% */
@@ -123,8 +148,99 @@
     border-bottom: 1px solid #312f40;
   }
   
-  /* ELIMINA BORDE INFERIOR DE LAS ÚLTIMAS 2 CARDS */
-  .comic-card:nth-last-child(-n+2) {
+  /* ELIMINA BORDE INFERIOR DE LAS ÚLTIMAS 2 CARDS (en cada grupo de 6) */
+  /* Para grupos de 6 cómics (3 filas de 2) */
+  .comic-card:nth-child(6n),
+  .comic-card:nth-child(6n-1) {
     border-bottom: none;
+  }
+}
+
+/* ==== CAMBIOS PARA MÓVIL ==== */
+@media (max-width: 767px) {
+  /* EN MÓVIL: UNA SOLA COLUMNA - CADA CARD OCUPA EL 100% */
+  .comic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* BORDE INFERIOR PARA TODAS LAS CARDS EN MÓVIL */
+  .comic-card {
+    border-bottom: 1px solid #312f40;
+  }
+  
+  /* ELIMINA BORDE INFERIOR DE LA ÚLTIMA CARD EN MÓVIL */
+  .comic-card:last-child {
+    border-bottom: none;
+  }
+  
+  /* PAGINACIÓN EN MÓVIL - MANTENER EN LA MISMA LÍNEA */
+  /* PAGINACIÓN EN MÓVIL - NUEVOS TEXTO */
+  .pagination-btn {
+    min-width: 80px; /* Más pequeño para móvil */
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  /* En móvil: mostrar textos móviles, ocultar desktop */
+  .pagination-btn .desktop-text,
+  .page-info .desktop-text {
+    display: none;
+  }
+  
+  .pagination-btn .mobile-text,
+  .page-info .mobile-text {
+    display: inline;
+  }
+  
+  /* Ajustar texto de página para móvil */
+  .page-info {
+    font-size: 12px;
+    min-width: 70px;
+    text-align: center;
+    padding: 0 5px;
+  }
+  
+  /* Asegurar que todo esté en la misma línea */
+  .grid-pagination {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 12px 10px;
+    gap: 5px;
+  }
+  
+  /* Ajustar iconos SVG en móvil */
+  .pagination-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Botón "Atrás": icono a la izquierda */
+  .pagination-btn:first-child svg {
+    order: -1; /* Icono antes del texto */
+  }
+  
+  /* Botón "Sig.": icono a la derecha */
+  .pagination-btn:last-child svg {
+    order: 1; /* Icono después del texto */
+  }
+  
+  /* Si la pantalla es muy pequeña, ajustar el layout */
+  @media (max-width: 380px) {
+    .grid-pagination {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+    
+    .page-info {
+      margin: 0 5px;
+      font-size: 11px;
+    }
+    
+    .pagination-btn {
+      min-width: 80px;
+      font-size: 11px;
+      padding: 4px 8px;
+    }
   }
 }
