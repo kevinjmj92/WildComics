@@ -1,0 +1,303 @@
+/* PopularSection.css - ACTUALIZADO */
+/* Contenedor principal */
+.popular-section {
+  background: #222222;
+  border-radius: 3px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  height: fit-content;
+}
+
+/* Encabezado */
+.popular-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 500;
+  background: #222222;
+  border-bottom: 1px solid #312f40;
+  padding: 8px 15px;
+}
+
+.popular-header h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Tabs (Semanal, Mensual, Total) */
+.popular-tabs {
+  padding: 11px 15px 0 15px;
+}
+
+.tabs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #333;
+  border-radius: 2px;
+  padding: 5px;
+  height: 32px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 2px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #ff0000;
+}
+
+.tab-button.active {
+  background: #ff0000;
+  color: white;
+}
+
+/* Lista de cómics - SIN SCROLL */
+.popular-comics-list {
+  /* Eliminado max-height y overflow para mostrar los 10 completos */
+  height: auto;
+}
+
+/* Card individual de cómic */
+.popular-comic-card {
+  display: flex;
+  padding: 12px 15px;
+  overflow: hidden;
+  height: 104px;
+  position: relative;
+  border-bottom: 1px solid #383838;
+  transition: background-color 0.2s ease;
+  align-items: flex-start; /* Cambiado a flex-start para alinear arriba */
+}
+
+.popular-comic-card:hover {
+  background-color: #2a2a2a;
+}
+
+.popular-comic-card:last-child {
+  border-bottom: none;
+}
+
+/* Número de ranking */
+.comic-rank {
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px; /* Ajuste para alinear con el contenido */
+}
+
+.rank-number {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 14px;
+  color: #888;
+  border-radius: 3px;
+  border: 0.5px solid #888;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rank-text {
+  z-index: 2;
+  font-weight: bold;
+}
+
+/* Corona para el primer lugar */
+.crown-icon {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+  width: 25px;
+  height: 20px;
+  z-index: 1;
+}
+
+/* Escudo para el segundo lugar */
+.shield-icon {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+  z-index: 1;
+}
+
+/* Antorcha para el tercer lugar */
+.torch-icon {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+  z-index: 1;
+}
+
+/* Imagen del cómic */
+.comic-image {
+  flex: 0 0 55px;
+  margin: 2px 12px 0 0;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.comic-image img {
+  width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.comic-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Información del cómic */
+.comic-info {
+  flex: 1;
+  overflow: hidden;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinear contenido al inicio */
+  margin-top: 5px; /* Ajuste para alinear con el número */
+}
+
+.comic-title {
+  margin: 0 0 -5px 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left; /* Asegurar alineación izquierda */
+}
+
+.comic-title a {
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.comic-title a:hover {
+  color: #ff0000;
+}
+
+.comic-genres {
+  margin-bottom: -10px;
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  text-align: left;
+}
+
+.genres-label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.genre-text {
+  color: #fff;
+  margin-right: 2px;
+}
+
+.genre-more {
+  color: #888;
+}
+
+/* Rating con estrellas */
+.comic-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  text-align: left;
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  font-size: 12px;
+  color: #fbbf24;
+}
+
+.full-star {
+  color: #fbbf24;
+}
+
+.half-star {
+  position: relative;
+  color: #fbbf24;
+}
+
+.half-star::after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #fbbf24;
+}
+
+.empty-star {
+  color: #555;
+}
+
+.rating-value {
+  font-size: 12px;
+  font-style: italic;
+  color: #999;
+  margin-left: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .popular-section {
+    margin-top: 20px;
+  }
+}
+
+/* Estilos específicos para los primeros 3 lugares */
+.rank-1 {
+  color: #FFD700 !important; /* Oro */
+  border-color: #FFD700 !important;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+}
+
+.rank-2 {
+  color: #C0C0C0 !important; /* Plata */
+  border-color: #C0C0C0 !important;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.05));
+}
+
+.rank-3 {
+  color: #CD7F32 !important; /* Bronce */
+  border-color: #CD7F32 !important;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.1), rgba(205, 127, 50, 0.05));
+}

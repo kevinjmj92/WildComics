@@ -5,78 +5,61 @@ import './ComicGrid.css';
 const ComicGrid = () => {
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // Muestra 2 filas de 2 comics en desktop
 
-  // Datos de ejemplo basados en AsuraComic
-  // En la sección de sampleComics, reemplaza el autor por rating:
-const sampleComics = [
-  {
-    id: 1,
-    title: "The Divine Demon Jeong Cheon",
-    imageUrl: "https://gg.asuracomic.net/storage/media/369068/conversions/01K85Q9ZG4MQQAWQN5PRCE5R2W-optimized.webp",
-    genres: ["Action", "Adventure", "Fantasy", "Martial Arts", "Murim", "Rebirth"],
-    status: "Ongoing",
-    rating: 8.7, // Nueva propiedad de calificación
-    latestChapter: "Capítulo 45",
-    url: "#"
-  },
-  {
-    id: 2,
-    title: "Iron-Blooded Warrior",
-    imageUrl: "https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp",
-    genres: ["Action", "Adventure", "Fantasy", "Martial Arts"],
-    status: "Ongoing",
-    rating: 7.9,
-    latestChapter: "Capítulo 32",
-    url: "#"
-  },
-  {
-    id: 3,
-    title: "Supreme Mage Returns",
-    imageUrl: "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-thumb-small.webp",
-    genres: ["Action", "Adventure", "Fantasy", "Rebirth", "Revenge"],
-    status: "Ongoing",
-    rating: 9.2,
-    latestChapter: "Capítulo 78",
-    url: "#"
-  },
-  {
-    id: 4,
-    title: "Heavenly Demon",
-    imageUrl: "https://gg.asuracomic.net/storage/media/36/conversions/d86aab25-thumb-small.webp",
-    genres: ["Action", "Fantasy", "Martial Arts", "Wuxia"],
-    status: "Ongoing",
-    rating: 8.1,
-    latestChapter: "Capítulo 56",
-    url: "#"
-  },
-  {
-    id: 5,
-    title: "Greed: The Game Master",
-    imageUrl: "https://gg.asuracomic.net/storage/media/258121/conversions/01JF83N4R7XZH8XT6FFHDB4Z1Z-thumb-small.webp",
-    genres: ["Action", "Adventure", "Comedy", "Fantasy", "Game"],
-    status: "Ongoing",
-    rating: 8.9,
-    latestChapter: "Capítulo 91",
-    url: "#"
-  },
-  {
-    id: 6,
-    title: "Physician of Tang Family",
-    imageUrl: "https://gg.asuracomic.net/storage/media/350643/conversions/01K4J921B3PYW9VQ7TWCJCEABY-thumb-small.webp",
-    genres: ["Action", "Adventure", "Comedy", "Fantasy", "Martial Arts", "Murim"],
-    status: "Ongoing",
-    rating: 7.5,
-    latestChapter: "Capítulo 23",
-    url: "#"
-  }
-];
+  // Datos de ejemplo (igual que antes)
+  const sampleComics = [
+    {
+      id: 1,
+      title: "The Divine Demon Jeong Cheon",
+      imageUrl: "https://gg.asuracomic.net/storage/media/369068/conversions/01K85Q9ZG4MQQAWQN5PRCE5R2W-optimized.webp",
+      chapters: [
+        { number: "Capítulo 45", timeAgo: "Hace 2 horas" },
+        { number: "Capítulo 44", timeAgo: "Hace 1 día" },
+        { number: "Capítulo 43", timeAgo: "Hace 3 días" }
+      ],
+      url: "#"
+    },
+    {
+      id: 2,
+      title: "Iron-Blooded Warrior",
+      imageUrl: "https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp",
+      chapters: [
+        { number: "Capítulo 32", timeAgo: "Hace 5 horas" },
+        { number: "Capítulo 31", timeAgo: "Hace 2 días" },
+        { number: "Capítulo 30", timeAgo: "Hace 4 días" }
+      ],
+      url: "#"
+    },
+    {
+      id: 3,
+      title: "Supreme Mage Returns",
+      imageUrl: "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-thumb-small.webp",
+      chapters: [
+        { number: "Capítulo 78", timeAgo: "Hace 1 hora" },
+        { number: "Capítulo 77", timeAgo: "Hace 1 día" },
+        { number: "Capítulo 76", timeAgo: "Hace 2 días" }
+      ],
+      url: "#"
+    },
+    {
+      id: 4,
+      title: "Heavenly Demon",
+      imageUrl: "https://gg.asuracomic.net/storage/media/36/conversions/d86aab25-thumb-small.webp",
+      chapters: [
+        { number: "Capítulo 56", timeAgo: "Hace 8 horas" },
+        { number: "Capítulo 55", timeAgo: "Hace 2 días" },
+        { number: "Capítulo 54", timeAgo: "Hace 4 días" }
+      ],
+      url: "#"
+    }
+  ];
 
-  // Simular carga de datos
   useEffect(() => {
     const loadComics = async () => {
       try {
-        // En el futuro aquí irá tu API
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 800));
         setComics(sampleComics);
       } catch (error) {
         console.error('Error loading comics:', error);
@@ -87,6 +70,23 @@ const sampleComics = [
 
     loadComics();
   }, []);
+
+  // Lógica de paginación
+  const totalPages = Math.ceil(comics.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentComics = comics.slice(startIndex, startIndex + itemsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   if (loading) {
     return (
@@ -99,21 +99,43 @@ const sampleComics = [
 
   return (
     <section className="comic-grid-section">
-      <div className="container">
-        <div className="section-header">
-          <h2>Cómics Populares</h2>
-          <p>Descubre las mejores series de manhwa y manga</p>
+      {/* CONTENEDOR GRIS QUE AGRUPA TODO (#222222) */}
+      <div className="comic-grid-container">
+        {/* ENCABEZADO DENTRO DEL GRID */}
+        <div className="grid-header">
+          <h2>Últimos Actualizados</h2>
+          <button className="view-all-btn">Ver Todos</button>
         </div>
         
+        {/* GRID DE CARDS */}
         <div className="comic-grid">
-          {comics.map(comic => (
+          {currentComics.map(comic => (
             <ComicCard key={comic.id} comic={comic} />
           ))}
         </div>
         
-        <div className="load-more-container">
-          <button className="load-more-btn">
-            Cargar Más Cómics
+        {/* PAGINACIÓN DENTRO DEL GRID */}
+        <div className="grid-pagination">
+          <button 
+            className="pagination-btn" 
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+          >
+            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.81809 4.18179C8.99383 4.35753 8.99383 4.64245 8.81809 4.81819L6.13629 7.49999L8.81809 10.1818C8.99383 10.3575 8.99383 10.6424 8.81809 10.8182C8.64236 10.9939 8.35743 10.9939 8.1817 10.8182L5.1817 7.81819C5.09731 7.73379 5.0499 7.61933 5.0499 7.49999C5.0499 7.38064 5.09731 7.26618 5.1817 7.18179L8.1817 4.18179C8.35743 4.00605 8.64236 4.00605 8.81809 4.18179Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="currentColor" strokeWidth="1" />
+            </svg>
+            Anterior
+          </button>
+          
+          <button 
+            className="pagination-btn" 
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            Siguiente
+            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.18194 4.18185C6.35767 4.00611 6.6426 4.00611 6.81833 4.18185L9.81833 7.18185C9.90272 7.26624 9.95013 7.3807 9.95013 7.50005C9.95013 7.6194 9.90272 7.73386 9.81833 7.81825L6.81833 10.8182C6.6426 10.994 6.35767 10.994 6.18194 10.8182C6.0062 10.6425 6.0062 10.3576 6.18194 10.1819L8.86374 7.50005L6.18194 4.81825C6.0062 4.64251 6.0062 4.35759 6.18194 4.18185Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" stroke="currentColor" strokeWidth="1" />
+            </svg>
           </button>
         </div>
       </div>

@@ -27,7 +27,7 @@ body {
 }
 
 main {
-  padding: 60px 20px;
+  padding: 0px 20px;
   text-align: center;
   width: 100%;
   max-width: 1400px;
@@ -47,44 +47,38 @@ main p {
   margin: 0 auto;
 }
 
-/* Estilos para el contenido futuro */
-.comic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+/* Estructura principal */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  margin-top: 40px;
 }
 
-.comic-card {
-  background: #1a1a1a;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* En desktop: dos columnas */
+@media (min-width: 992px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .content-left {
+    flex: 0 0 70%;
+    max-width: 70%;
+    padding-right: 15px;
+  }
+
+  .content-right {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
 }
 
-.comic-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.comic-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.comic-info {
-  padding: 15px;
-}
-
-.comic-title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-.comic-chapter {
-  font-size: 0.9rem;
-  color: #feca57;
+/* Ajustes para móvil */
+@media (max-width: 991px) {
+  .content-left,
+  .content-right {
+    width: 100%;
+  }
 }
