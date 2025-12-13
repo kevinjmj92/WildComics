@@ -1,7 +1,6 @@
 .footer {
   background-color: #0f0f0f; /* Cambiado a negro para que coincida con el fondo de la página */
   padding: 40px 20px;
-  margin-top: 60px;
   /* Se eliminó border-top: 2px solid #feca57; */
 }
 
@@ -46,7 +45,6 @@
   color: #ccc;
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 10px;
   opacity: 0.8;
 }
 
