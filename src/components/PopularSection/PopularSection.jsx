@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import imagenGif from '../../assets/imagen-move.gif';
 import './PopularSection.css';
 
 const PopularSection = () => {
@@ -82,7 +83,7 @@ const PopularSection = () => {
       id: 10,
       rank: 10,
       title: "A Dragonslayer's Peerless Regression",
-      imageUrl: "https://gg.asuracomic.net/storage/media/266162/01JJ78S117GDR2JEW066796E8B.gif",
+      imageUrl: imagenGif,  // Usamos la imagen local importada
       genres: ["Action", "Adventure", "Fantasy", "Regression"],
       rating: 9.2
     }
