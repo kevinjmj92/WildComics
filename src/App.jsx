@@ -4,6 +4,7 @@ import Carousel from './components/Carousel/Carousel'; // Cambiado de ComicCarou
 import ComicGrid from './components/ComicGrid/ComicGrid';
 import Footer from './components/Footer/Footer';
 import PopularSection from './components/PopularSection/PopularSection';
+import FooterNavbar from './components/FooterNavbar/FooterNavbar'; // Nuevo componente
 import './App.css';
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
           </div>
         </div>
       </main>
+      {/* Nuevo FooterNavbar agregado aquí */}
+      <FooterNavbar />
       <Footer />
     </div>
   );
